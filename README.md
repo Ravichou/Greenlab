@@ -112,7 +112,7 @@ You can then update your PATH with
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 ```
 
-The compilation is then AUTOMATICALLY performed when you start lab 1.2
+The compilation is then automatically performed when you start lab 1.2
 
 For reference, the command used:
 ```shell
@@ -122,7 +122,7 @@ g++ .\Labs\Lab1\Lab1_2\LAB1_2.cpp -o LAB1_2.exe
 #### Unix
 Nothing to do here.
 
-The compilation is AUTOMATICALLY performed when you start lab 1.2
+The compilation is automatically performed when you start lab 1.2
 
 For reference, the command used:
 ```shell

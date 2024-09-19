@@ -77,7 +77,7 @@ You can:
 
 ### 2.3. Running the labs
 
-##### Windows
+#### Windows
 ```shell
 py .\runner.py -l *lab_number*
 ```
@@ -86,7 +86,7 @@ Example:
 py .\runner.py -l 1.1
 ```
 
-##### Linux
+#### Linux
 ```shell
 .venv/bin/python ./runner.py -l *lab_number*
 ```
@@ -102,7 +102,7 @@ deactivate
 
 ### 2.4. To compile LAB1_2
 
-##### Windows
+#### Windows
 You need a c++ compiler.
 
 Follow instructions to install MinGW-w64 toolchain here https://code.visualstudio.com/docs/cpp/config-mingw
@@ -119,7 +119,7 @@ For reference, the command used:
 g++ .\Labs\Lab1\Lab1_2\LAB1_2.cpp -o LAB1_2.exe
 ```
 
-##### Unix
+#### Unix
 Nothing to do here.
 
 The compilation is AUTOMATICALLY performed when you start lab 1.2
@@ -129,14 +129,14 @@ For reference, the command used:
 g++ ./Labs/Lab1/Lab1_2/LAB1_2.cpp -o LAB1_2.bin
 ```
 
-### 3. To Do
+## 3. To Do
 
 Lab3:
 
     Add comparator with/without optimizer
     Add lab 3_3
 
-#### 4. Building and publishing Docker image
+## 4. Building and publishing Docker image
 Run the following command to build the docker image:
 ```shell
 docker build . -t ravichou/greenlab:*version_number*

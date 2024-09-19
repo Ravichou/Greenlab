@@ -131,6 +131,10 @@ g++ ./Labs/Lab1/Lab1_2/LAB1_2.cpp -o LAB1_2.bin
 
 ## 3. To Do
 
+Runner:
+    
+    Execute python labs in subprocesses
+
 Lab3:
 
     Add comparator with/without optimizer

@@ -16,10 +16,12 @@ There is a bonus section for calculating the energy consumption of network and s
 Hypothesis:
 - The job is monothreaded.
 - We assume the computation is executed in Azure, Microsoft's Cloud Service Provider, on a DS2 v2 Virtual Machine, of the D1s-5s v2 series.
-- For each constant, consider the average values corresponding to the Cloud Service Provider (except for PUE, see in constant description).
+- For each constant, consider the average values corresponding to the Cloud Service Provider.
 - For the memory energy consumption, we will consider that none of it was implicitly included in the CPU energy consumption, and thus will consider all the given value in the input as excess memory.
 - For the carbon intensity, we will consider a constant value of the region (West Europe) where the Azure cluster is deployed.
 - Load factor is not provided. Fallback to the average value.
+- Beware of the Azure PUE! Take the worst average value documented.
+- In the Embodied Emissions formula, the TR factors represent different SCI factors.
 '''
 ###########################################################
 ############### YOU CAN EDIT THE CODE BELOW ###############

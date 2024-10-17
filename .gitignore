@@ -9,6 +9,8 @@ __pycache__
 # Ignore vscode process
 .vscode
 
-# Ignore binaries compiled for lab1.2
+# Ignore binaries compiled for lab1
 LAB1_2.bin
 LAB1_2.exe
+LAB1_3.bin
+LAB1_3.exe

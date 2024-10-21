@@ -4,29 +4,6 @@ import importlib
 import subprocess
 from src.Lab1Runner import Lab1Runner
 
-
-def compile_cpp(lab_folder, labs_folder):
-    if os.name == 'posix':
-        process = subprocess.Popen(["g++", "-o", lab_folder[:-3]+"bin", lab_folder],
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE,
-                                   text=True)
-        std_out, std_err = process.communicate()
-        if std_err:
-            print(std_err)
-            return None
-        return lab_folder[:-3]+"bin"
-    elif os.name == 'nt':
-        process = subprocess.Popen(["g++", "-o", labs_folder+r'\Lab1\Lab1_2\LAB1_2.exe', labs_folder+r'\Lab1\Lab1_2\LAB1_2.cpp'],
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE,
-                                   text=True)
-        std_out, std_err = process.communicate()
-        if std_err:
-            print(std_err)
-            return None
-        return labs_folder+r'\Lab1\Lab1_2\LAB1_2.exe'
-
 @click.command()
 @click.option('-l', '--lab_number', required=True, type=click.Choice(['1.1', '1.2', '1.3', '2', '3.1', '3.2']), help='The lab number')
 @click.option('-s', '--solution', is_flag=True, default=False, help='Run solutions')
@@ -71,18 +48,8 @@ def launch_lab1(lab_number, labs_folder, SCI, run_in_cpp):
     decimal = lab_number.split(".")[1]
     lab_path = f'{labs_folder}/Lab1/Lab1_{decimal}/LAB1_{decimal}.py'
     command = f"python {lab_path}"
-    if lab_number == "1.2" or run_in_cpp:
-            # Compile C++ code
-        print("C++ code detected. Compiling C++ code...")
-        print(lab_path[:-2]+"cpp")
-        compiled_script = compile_cpp(lab_path[:-2]+"cpp", labs_folder)
-        if compiled_script:
-            command = compiled_script
-            print("C++ code compiled!\n")
-        else:
-            print("C++ code compilation failed.")
-            exit(1)
-        # Run tests
+    if lab_number == "1.2" or (run_in_cpp and lab_number == "1.3"):
+        command = lab_path[:-2]+"bin"
     if Lab1Runner.run_test_lab1(command, tests.funcTests):
         print("Functional tests PASSED! \n")
         print("Now running performance test...")

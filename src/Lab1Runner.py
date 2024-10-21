@@ -46,7 +46,9 @@ class Lab1Runner:
     def run_perf_test_lab1(script, perfTest, SCI_service):
         print("Running performance test...")
         try:
+            start_telemetries = getrusage(RUSAGE_CHILDREN)
             result = Lab1Runner.findLongestPalindromeWrapper(script, perfTest['input'])
+            children_telemetries = getrusage(RUSAGE_CHILDREN)
             assert result == perfTest['output'], f"Expected {perfTest['output']} but got {result}"
             print("Perf test PASSED! \n")
             print("Gathering performance metrics...")
@@ -54,11 +56,12 @@ class Lab1Runner:
             cpu_load = psutil.cpu_percent(interval=None)
             # Gather runner metrics
             self_telemetries = getrusage(RUSAGE_SELF)
-            self_cpu_time = self_telemetries.ru_utime + self_telemetries.ru_stime
+            self_cpu_time = self_telemetries.ru_utime
             self_ram_MB = self_telemetries.ru_maxrss / 1024 / 1024
             # Gather algo metrics
-            children_telemetries = getrusage(RUSAGE_CHILDREN)
-            child_cpu_time = children_telemetries.ru_utime + children_telemetries.ru_stime
+            user_time = children_telemetries.ru_utime - start_telemetries.ru_utime  # User CPU time
+            system_time = children_telemetries.ru_stime - start_telemetries.ru_stime  # System CPU time
+            child_cpu_time = user_time + system_time
             child_ram_MB = children_telemetries.ru_maxrss / 1024 / 1024
 
             reportPerformances(cpu_load,

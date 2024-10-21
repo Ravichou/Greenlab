@@ -1,23 +1,28 @@
 #!/bin/bash
 
 # Script to execute the lab with Docker
-# Usage: ./run.sh -l <lab_number> [-s]
+# Usage: ./run.sh -l <lab_number> [-s] [-c++]
 
 # Variables initialisation
 lab_number=""
 flag_s=""
+flag_cplusplus=""
 
 # Options parsing
-while getopts ":l:s" opt; do
+while getopts ":l:sc" opt; do
   case ${opt} in
-    l ) 
+    l)
       lab_number=$OPTARG
       ;;
-    s ) 
+    s)
       flag_s="-s"
       ;;
-    \? )
-      echo "Usage: ./run.sh -l <lab_number> [-s]"
+    c)
+      flag_cplusplus="-c++"
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      echo "Usage: ./run.sh -l <lab_number> [-s] [-c]"
       exit 1
       ;;
   esac
@@ -33,4 +38,4 @@ fi
 version_number=$(cat config.json | grep -o '"version": "[^"]*' | grep -o '[^"]*$')
 
 # Docker command to run the lab with the version number
-docker run --rm -it -v ./Labs:/app/Labs ravichou/greenlab:"$version_number" python3 runner.py -l "$lab_number" $flag_s
+docker run --rm -it -v ./Labs:/app/Labs ravichou/greenlab:"$version_number" python3 runner.py -l "$lab_number" $flag_s $flag_cplusplus

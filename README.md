@@ -1,4 +1,4 @@
-# GreenLab v0.3
+# GreenLab v0.4
 
 ## What is the repository?
 
@@ -12,6 +12,11 @@ The third lab is to plan a schedule of jobs to minimize carbon emissions within 
 
 
 ## Usage
+
+Options
+-l *lab_number* : select lab number to run (mandatory)
+-s : run solution
+-c : execute the C++ version of Lab 1
 
 There are 2 ways to do the labs: with or without the Docker image.
 
@@ -37,7 +42,7 @@ docker run --rm -it -v ./Labs:/app/Labs ravichou/greenlab:*version_number* pytho
 ```
 Example:
 ```shell
-docker run --rm -it -v ./Labs:/app/Labs ravichou/greenlab:0.0.3 python3 runner.py -l 1.2
+docker run --rm -it -v ./Labs:/app/Labs ravichou/greenlab:0.0.4 python3 runner.py -l 1.2
 ```
 
 ## 2. Without Docker image
@@ -130,10 +135,6 @@ g++ ./Labs/Lab1/Lab1_2/LAB1_2.cpp -o LAB1_2.bin
 ```
 
 ## 3. To Do
-
-Runner:
-    
-    Execute python labs in subprocesses
 
 Lab3:
 

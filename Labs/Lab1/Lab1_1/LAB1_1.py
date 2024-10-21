@@ -28,3 +28,11 @@ def findLongestPalindrome(s: str) -> str:
     longestPalindrome = s
 
     return longestPalindrome
+
+##### YOU CAN EDIT THE CODE ABOVE #####
+##### DO NOT EDIT BELOW THIS LINE #####
+#######################################
+
+if __name__ == "__main__":
+    import sys
+    print("RESPONSE: "+findLongestPalindrome(sys.argv[1]), end="")

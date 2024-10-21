@@ -1,4 +1,4 @@
-""" 
+/* 
 LAB 1 - Longest Palindromic Substring - Level 3
 In the given string s, your task is to identify and return the longest palindromic substring. 
 A palindromic substring is a contiguous sequence of characters existing within the string s that reads the same forward and backward. 
@@ -15,19 +15,24 @@ LAB 1.3 - Complexity optimisation
 4/ Even and odd palindrome sizes need to be handled. 
 5/ Determine the complexity of the algorithm implemented.
 6/ How much CO2 does your implementation generate ? 
-"""
+*/
 
-##### YOU CAN EDIT THE CODE BELOW #####
+#include <string>
+#include <iostream>
 
-def findLongestPalindrome(s: str) -> str:
-    longestPalindrome = s
 
-    return longestPalindrome
+using namespace std;
 
-##### YOU CAN EDIT THE CODE ABOVE #####
-##### DO NOT EDIT BELOW THIS LINE #####
-#######################################
+//#### YOU CAN EDIT THE CODE BELOW ####//
 
-if __name__ == "__main__":
-    import sys
-    print("RESPONSE: "+findLongestPalindrome(sys.argv[1]), end="")
+string findLongestPalindrome(string s) {
+    return "";
+}
+
+
+//##### DO NOT EDIT BELOW THIS LINE #####
+
+int main(int argc, char* argv[]){
+    cout << "RESPONSE: "+ findLongestPalindrome(argv[1]);
+    return 0;
+}

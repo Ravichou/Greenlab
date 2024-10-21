@@ -19,6 +19,6 @@ string findLongestPalindrome(string s) {
 //##### DO NOT EDIT BELOW THIS LINE #####
 
 int main(int argc, char* argv[]){
-    cout << findLongestPalindrome(argv[1]);
+    cout << "RESPONSE: "+ findLongestPalindrome(argv[1]);
     return 0;
 }

@@ -14,9 +14,13 @@ The third lab is to plan a schedule of jobs to minimize carbon emissions within 
 ## Usage
 
 Options
+
 -l *lab_number* : select lab number to run (mandatory)
+
 -s : run solution
+
 -c : execute the C++ version of Lab 1
+
 
 There are 2 ways to do the labs: with or without the Docker image.
 

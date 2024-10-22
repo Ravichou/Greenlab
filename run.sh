@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script to execute the lab with Docker
-# Usage: ./run.sh -l <lab_number> [-s] [-c++]
+# Usage: ./run.sh -l <lab_number> [-s] [-c]
 
 # Variables initialisation
 lab_number=""

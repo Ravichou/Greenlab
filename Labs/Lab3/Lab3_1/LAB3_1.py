@@ -65,13 +65,19 @@ def run_func_test(tests):
 
 def main(input):
     # Run the functional test
+    import src.Lab3Utils
     print("Running functional test...")
     if run_func_test(input):
         print("Running Lab...")
         exercise = input['exercise']
         scheduledJobs = scheduleJobs(exercise)
+
         try:
             assert scheduledJobs == exercise['expectedOutput'], f"Expected \r\n {exercise['expectedOutput']} \r\n but got \r\n {scheduledJobs}"
+            results = src.Lab3Utils.compare_emissions(scheduledJobs, exercise['jobsNumber'], 
+                          exercise['carbonIntensity'],
+                          exercise.get('coreCapacity'))
+            src.Lab3Utils.print_comparison_results(results)
             print("Level 1 COMPLETED.")
         except AssertionError as e:
             print("Level 1 FAILED.")

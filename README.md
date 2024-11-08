@@ -1,4 +1,4 @@
-# GreenLab v0.5
+# GreenLab v0.6
 
 ## What is the repository?
 
@@ -140,10 +140,6 @@ g++ ./Labs/Lab1/Lab1_2/LAB1_2.cpp -o LAB1_2.bin
 
 ## 3. To Do
 
-Lab3:
-
-    Add comparator with/without optimizer
-    Add lab 3_3
 
 ## 4. Building and publishing Docker image
 Run the following command to build the docker image:

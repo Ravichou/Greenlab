@@ -5,7 +5,7 @@ import subprocess
 from src.Lab1Runner import Lab1Runner
 
 @click.command()
-@click.option('-l', '--lab_number', required=True, type=click.Choice(['1.1', '1.2', '1.3', '2', '3.1', '3.2']), help='The lab number')
+@click.option('-l', '--lab_number', required=True, type=click.Choice(['1.1', '1.2', '1.3', '2', '3.1', '3.2', '3.3']), help='The lab number')
 @click.option('-s', '--solution', is_flag=True, default=False, help='Run solutions')
 @click.option('-c++', '--run_in_cpp', is_flag=True, default=False, help='Run in c++')
 def main(lab_number, solution, run_in_cpp):
@@ -35,6 +35,9 @@ def launch_lab3(lab_number, labs_folder):
     elif lab_number == "3.2":
         lab_number = importlib.import_module(f'{labs_folder}.Lab3.Lab3_2.LAB3_2')
         lab_number.main(tests.level2)
+    elif lab_number == "3.3":
+        lab_number = importlib.import_module(f'{labs_folder}.Lab3.Lab3_3.LAB3_3')
+        lab_number.main(tests.level3)
 
 
 def launch_lab2(labs_folder, SCI):
